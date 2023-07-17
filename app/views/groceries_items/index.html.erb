@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Groceries Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Availability</th>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @groceries_items.each do |groceries_item| %>
+      <tr>
+        <td><%= groceries_item.name %></td>
+        <td><%= groceries_item.availability %></td>
+        <td><%= groceries_item.price %></td>
+        <td><%= link_to 'Show', groceries_item %></td>
+        <td><%= link_to 'Edit', edit_groceries_item_path(groceries_item) %></td>
+        <td><%= link_to 'Destroy', groceries_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Groceries Item', new_groceries_item_path %>
